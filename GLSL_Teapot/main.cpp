@@ -130,14 +130,22 @@ void init(){
 #pragma mark LoadShader
 GLuint LoadShader(const char * shader_file_path, shaderType shader_type, GLuint program_id = -1){
     
+    /* 
+     Create Shader
+     First you have to create an OpenGL "Shader Object" specifying what kind of shader it is (e.g. Vertex Shader, Geometry Shader, or Fragment Shader) . A shader object can be created using the OpenGL function glCreateShader with the arguments GL_VERTEX_SHADER or GL_FRAGMENT_SHADER (or GL_GEOMETRY_SHADER_EXT).
+     */
     GLuint shader_id;
-    
     if(shader_type == VERTEX_SHADER)
         shader_id = glCreateShader(GL_VERTEX_SHADER);
     
     else
         shader_id = glCreateShader(GL_FRAGMENT_SHADER);
     
+    
+    /* 
+     Loading Shader
+     If the shaders are located in text files they must be loaded into memory first. This part has nothing to do with OpenGL, it is a simple ASCII file loader. If you write your shaders in Unicode (for the comments), you have to write your own loader. The actual program in memory should be in ASCII. You could also embed your shaders into your C++ code using a static char array. In other words: it doesn't matter how you get your shaders into memory. I recommend using ASCII files. This way you can change your shader code without recompiling your application.
+     */
     std::string ShaderCode;
     std::ifstream ShaderStream(shader_file_path, std::ios::in);
     if(ShaderStream.is_open())
@@ -174,7 +182,7 @@ GLuint LoadShader(const char * shader_file_path, shaderType shader_type, GLuint 
     fprintf(stdout, "Linking program\n");
     if(program_id == -1)
         program_id = glCreateProgram();
-    glAttachShader(program_id, shader_id);
+    glAttachShader(program_id, shader_id); //Append shader_id to existing program_id
     glLinkProgram(program_id);
     
     // Check the program
