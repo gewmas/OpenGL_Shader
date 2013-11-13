@@ -430,10 +430,10 @@ int main(int argc, char * argv[])
 //    programID = LoadShaders( "lighting.vert", "lighting.frag" );
     
     //Nov 13
-//    programID = LoadShader("lighting.vert", VERTEX_SHADER);
-//    programID = LoadShader("lighting.frag", FRAGMENT_SHADER, programID);
-    programID = LoadShader("spotlight.vert", VERTEX_SHADER);
-    programID = LoadShader("spotlight.frag", FRAGMENT_SHADER, programID);
+    programID = LoadShader("lighting.vert", VERTEX_SHADER);
+    programID = LoadShader("lighting.frag", FRAGMENT_SHADER, programID);
+//    programID = LoadShader("spotlight.vert", VERTEX_SHADER);
+//    programID = LoadShader("spotlight.frag", FRAGMENT_SHADER, programID);
 
     //frame buffer object
     fbo_program_id = LoadShader("blur.frag", FRAGMENT_SHADER);
