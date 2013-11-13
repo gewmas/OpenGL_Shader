@@ -17,6 +17,7 @@
 		4C04A5E91833D244008C4930 /* spotlight.vert in Sources */ = {isa = PBXBuildFile; fileRef = 4C04A5E21833D244008C4930 /* spotlight.vert */; };
 		4C04A5EA1833D244008C4930 /* test.frag in Sources */ = {isa = PBXBuildFile; fileRef = 4C04A5E31833D244008C4930 /* test.frag */; };
 		4C04A5EB1833D244008C4930 /* test.vert in Sources */ = {isa = PBXBuildFile; fileRef = 4C04A5E41833D244008C4930 /* test.vert */; };
+		4C04A5F21833D8FD008C4930 /* blur.frag in Sources */ = {isa = PBXBuildFile; fileRef = 4C04A5F11833D8FD008C4930 /* blur.frag */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +45,7 @@
 		4C04A5E21833D244008C4930 /* spotlight.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = spotlight.vert; sourceTree = "<group>"; };
 		4C04A5E31833D244008C4930 /* test.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test.frag; sourceTree = "<group>"; };
 		4C04A5E41833D244008C4930 /* test.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test.vert; sourceTree = "<group>"; };
+		4C04A5F11833D8FD008C4930 /* blur.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = blur.frag; path = DerivedData/GLSL_Teapot/Build/Products/Debug/blur.frag; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,16 +82,25 @@
 		4C04A5D01833D1FB008C4930 /* GLSL_Teapot */ = {
 			isa = PBXGroup;
 			children = (
+				4C04A5EE1833D715008C4930 /* shaders */,
+				4C04A5E01833D244008C4930 /* main.cpp */,
+				4C04A5D31833D1FB008C4930 /* GLSL_Teapot.1 */,
+			);
+			path = GLSL_Teapot;
+			sourceTree = "<group>";
+		};
+		4C04A5EE1833D715008C4930 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
 				4C04A5DE1833D244008C4930 /* lighting.frag */,
 				4C04A5DF1833D244008C4930 /* lighting.vert */,
-				4C04A5E01833D244008C4930 /* main.cpp */,
 				4C04A5E11833D244008C4930 /* spotlight.frag */,
 				4C04A5E21833D244008C4930 /* spotlight.vert */,
 				4C04A5E31833D244008C4930 /* test.frag */,
 				4C04A5E41833D244008C4930 /* test.vert */,
-				4C04A5D31833D1FB008C4930 /* GLSL_Teapot.1 */,
+				4C04A5F11833D8FD008C4930 /* blur.frag */,
 			);
-			path = GLSL_Teapot;
+			name = shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 				4C04A5E91833D244008C4930 /* spotlight.vert in Sources */,
 				4C04A5EB1833D244008C4930 /* test.vert in Sources */,
 				4C04A5E51833D244008C4930 /* lighting.frag in Sources */,
+				4C04A5F21833D8FD008C4930 /* blur.frag in Sources */,
 				4C04A5E81833D244008C4930 /* spotlight.frag in Sources */,
 				4C04A5E71833D244008C4930 /* main.cpp in Sources */,
 				4C04A5EA1833D244008C4930 /* test.frag in Sources */,

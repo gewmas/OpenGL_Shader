@@ -317,7 +317,7 @@ void display (void) {
     
     renderScene();
     
-//    glUseProgram(fbo_program_id);
+    glUseProgram(fbo_program_id);
     
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Clear the background of our window to black
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Clear the colour buffer (more buffers later on)
@@ -436,7 +436,7 @@ int main(int argc, char * argv[])
     programID = LoadShader("spotlight.frag", FRAGMENT_SHADER, programID);
 
     //frame buffer object
-//    fbo_program_id = LoadShader("blur.frag", FRAGMENT_SHADER);
+    fbo_program_id = LoadShader("blur.frag", FRAGMENT_SHADER);
 
     
     glUseProgram(programID);
