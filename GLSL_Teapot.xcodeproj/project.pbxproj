@@ -88,10 +88,10 @@
 		4C04A5EE1833D715008C4930 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
-				4C04A5F31833DAC4008C4930 /* lighting.frag */,
 				4C04A5F41833DAC4008C4930 /* lighting.vert */,
-				4C04A5F51833DAC4008C4930 /* spotlight.frag */,
+				4C04A5F31833DAC4008C4930 /* lighting.frag */,
 				4C04A5F61833DAC4008C4930 /* spotlight.vert */,
+				4C04A5F51833DAC4008C4930 /* spotlight.frag */,
 				4C04A5F11833D8FD008C4930 /* blur.frag */,
 			);
 			name = shaders;

@@ -178,11 +178,14 @@ GLuint LoadShader(const char * shader_file_path, shaderType shader_type, GLuint 
         printf("Shader compiled!\n\n\n");
     }
     
-    // Link the program
+    /*
+     Link the program
+     A vertex shader and fragment shader (and geometry shader) must be put together to a unit before it is possible to link. This unit is called "Program Object". The Program Object is created using glCreateProgram.
+    */
     fprintf(stdout, "Linking program\n");
     if(program_id == -1)
         program_id = glCreateProgram();
-    glAttachShader(program_id, shader_id); //Append shader_id to existing program_id
+    glAttachShader(program_id, shader_id); //Append shader_id to existing program_id, and then link vertex and fragment shader
     glLinkProgram(program_id);
     
     // Check the program
@@ -197,6 +200,9 @@ GLuint LoadShader(const char * shader_file_path, shaderType shader_type, GLuint 
     return program_id;
 }
 
+/*
+ LoadShaders load vertex and fragment together
+ Now Use LoadShader to load separately
 GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path){
     
     const GLubyte *errString;
@@ -286,6 +292,7 @@ GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path
     
     return ProgramID;
 }
+ */
 
 
 #pragma mark Render
@@ -303,15 +310,22 @@ void renderScene(void) {
 		      0.0,0.0,0.0,
 			  0.0f,1.0f,0.0f);
     
-    glBindTexture(GL_TEXTURE_2D, texName);
+    glBindTexture(GL_TEXTURE_2D, texName); //Bind uniform sampler2D my_color_texture; in lighting.frag??
+    
+    /*
+     Using Shaders
+     Once you have a linked Program Object, it is very easy to use that shader with the OpenGL function glUseProgram with the program object as argument. To stop using the program you can call glUseProgram(0).
+     */
     glUseProgram(programID);
     glRotatef(a, 0, 1, 0);
-    glutSolidTeapot(1.0);
+    
+    glutSolidTeapot(1.0); //draw the SolidTeapot
     
     a += 0.1;
     
     glUseProgram(0);
     glBindTexture(GL_TEXTURE_2D, 0);
+    
     glPopAttrib(); // Restore our glEnable and glViewport states
     glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0); // Unbind our texture
     
@@ -325,6 +339,10 @@ void display (void) {
     
     renderScene();
     
+    /*
+     Using Shaders - Now Frame Buffer Object to blur the scene
+     Once you have a linked Program Object, it is very easy to use that shader with the OpenGL function glUseProgram with the program object as argument. To stop using the program you can call glUseProgram(0).
+     */
     glUseProgram(fbo_program_id);
     
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Clear the background of our window to black
